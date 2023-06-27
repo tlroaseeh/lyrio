@@ -27,14 +27,14 @@ export function IsIntString(validationOptions?: ValidationOptions) {
 // class-validator's IsPort accepts strings only, but I prefer
 // writting port numbers as number
 export function IsPortNumber(validationOptions?: ValidationOptions) {
-  return If(value => Number.isInteger(value) && value >= 1 && value <= 65535, validationOptions);
+  return If(value => Number.isInteger(value) && Number(value) >= 1 && Number(value) <= 65535, validationOptions);
 }
 
 // A username is a string of 3 ~ 24 ASCII characters, and each character
 // is a uppercase / lowercase letter or a number or any of '-_.#$' and is
 // NOT '%'.
 export function isUsername(str: string) {
-  return /^[a-zA-Z0-9\-_.#$]{3,24}$/.test(str);
+  return /^[a-zA-Z0-9\-_.#$]{2,24}$/.test(str);
 }
 
 export function IsUsername(validationOptions?: ValidationOptions) {
